@@ -1,0 +1,26 @@
+{
+  "name": "soa-project",
+  "version": "1.0.0",
+  "description": "software application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RissRyan/SOA-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RissRyan/SOA-Project/issues"
+  },
+  "homepage": "https://github.com/RissRyan/SOA-Project#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.3"
+  }
+}
