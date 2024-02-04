@@ -24,9 +24,33 @@ const TopicSchema = new Schema({
     }
 });
 
+const MessageSchema = new Schema({
+
+    topicID: {
+        type: Schema.Types.String,
+        required: true
+    },
+
+    owner: {
+        type: Schema.Types.String,
+        required: true
+    },
+
+    content: {
+        type: Schema.Types.String,
+        required: true
+    },
+
+    createdAt: {
+        type: Schema.Types.Date,
+        default: Date.now
+    }
+
+});
+
 // On exporte le model
 module.exports = {
 
-    // On dit que le Model User est créé à partir du Schema UserSchema et le Model sera stocké dans la base de donnée MongoDB sous le nom "user"
-    Topic: mongoose.model('topic', TopicSchema)
+    Topic: mongoose.model('topic', TopicSchema),
+    Message: mongoose.model('message', MessageSchema)
 }

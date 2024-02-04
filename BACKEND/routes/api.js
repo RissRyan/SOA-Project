@@ -42,10 +42,17 @@ apiRouter.get('/topics', async (req, res) => {
   res.json(await topicController.getTopics())
 })
 
-
 apiRouter.get('/topic/:topicID', async (req, res) => {
   res.json(await topicController.readTopic(req.params.topicID));
 });
+
+apiRouter.post('/message/:topicID', async (req, res) => {
+  res.json(await topicController.createMessage(req.params.topicID, req.session.user.username, req.body.content))
+})
+
+apiRouter.get('/messages/:topicID', async (req, res) => {
+  res.json(await topicController.getMessages(req.params.topicID))
+})
 
 // On exporte seulement le router
 module.exports = apiRouter;

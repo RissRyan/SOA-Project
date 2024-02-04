@@ -12,6 +12,28 @@ async function createTopic(owner, title, content){
     }
 }
 
+async function createMessage(topicID, owner, content)
+{
+    try{
+        const newMessage = new models.Message({topicID: topicID, owner: owner, content: content})
+        await newMessage.save();
+        return {status: 0, msg: "Votre message a été créé !"}
+
+    }catch(e){
+        return {status: -1, msg: "Impossible de créer le message"}
+    }
+}
+
+async function getMessages(topicID)
+{
+    try {
+        return await models.Message.find({ topicID: topicID });
+    }
+    catch (e) {
+        return "Il y a eu une erreur lors de la recuperation des messages";
+    }
+}
+
 async function getTopics() {
 
     // On essaye de récupérer TOUS les utilisateurs (donc on ne met pas de conditions lors de la recherche, juste un object vide)
@@ -49,5 +71,7 @@ async function readTopic(topicID) {
 module.exports = {
     createTopic: createTopic,
     getTopics: getTopics,
+    createMessage: createMessage,
+    getMessages: getMessages,
     readTopic: readTopic
 }

@@ -34,28 +34,25 @@ function Index() {
 
   return (
     <>
-      <body>
         <div className="form_box">
-          <h2>Connexion</h2>
+          <h2>Sign in</h2>
           <div>
-            <label htmlFor="Username">Pseudo</label>
+            <label htmlFor="Username">Username</label>
             <br />
             <input id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <br />
-            <label htmlFor="password">Mot de passe</label>
+            <label htmlFor="password">Password</label>
             <br />
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           <br />
           <div className="connexion_button">
-            <button onClick={connect} type="button" id="formButton">Se connecter</button>
+            <button onClick={connect} type="button" id="formButton">Sign in</button>
           </div>
         </div>
         <div>
-          <p>Vous êtes nouveau ? : <a href="http://localhost:3000/inscription">Inscription</a></p>
+          <p>New user ? : <a href="http://localhost:3000/signup">Sign up</a></p>
         </div>
-
-      </body>
     </>
   );
 }

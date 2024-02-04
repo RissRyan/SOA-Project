@@ -75,7 +75,21 @@ app.use(sessionMiddleware);
 
 io.on("connect", (socket) =>{
 
-  socket.emit('message', 'Hello from backend !');
+  socket.join("hub");
+
+  socket.on('newtopic', async () => {
+    io.to("hub").emit("updatehub")
+  })
+
+  socket.on('jointopic', (topicID) => {
+    const topicRoom = `topic-${topicID}`;
+    socket.join(topicRoom);
+  })
+  socket.on('newmessage', (topicID) => {
+    const topicRoom = `topic-${topicID}`;
+    io.to(topicRoom).emit('updatemessages');
+  });
+  
 
   socket.on('disconnect', async (reason) => {
     //console.log('user disconnected : ' + socket.user.pseudo + " reason : ", reason);

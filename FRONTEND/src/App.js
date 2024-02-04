@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import Index from './Components/Index';
-import Inscription from './Components/Inscription';
 import io from 'socket.io-client';
 import { SocketProvider } from './Components/SocketIo.js';
 import './App.css';
 import Hub from './Components/Hub.js';
+import Topic from './Components/Topic.js';
+import SignUp from './Components/SignUp.js';
 
 // Utilisez socket pour envoyer et recevoir des événements
 const socket = io('http://localhost:5000', {
@@ -41,6 +42,8 @@ const socket = io('http://localhost:5000', {
     console.log('not connected to server');
 });
 
+
+
 socket.on('disconnect', () => {
   console.log('disconnected from server');
   storeClientState();
@@ -53,8 +56,9 @@ function App() {
     <Routes>
       {/* Définissez vos routes ici */}
       <Route path="/" element={<Index />} />
-      <Route path="/inscription" element={<Inscription />} />
-      <Route path="/hub" element={<Hub />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/hub" element={<Hub socket={socket}/>} />
+      <Route path="/topic/:id" element={<Topic socket={socket} />} />
     </Routes>
   </SocketProvider>
   );
