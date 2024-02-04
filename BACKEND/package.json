@@ -18,9 +18,17 @@
   },
   "homepage": "https://github.com/RissRyan/SOA-Project#readme",
   "dependencies": {
+    "connect-redis": "^6.1.3",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "helmet": "^7.1.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.1",
     "morgan": "^1.10.0",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "redis": "^3.1.2",
+    "socket.io": "^4.7.4"
   }
 }
