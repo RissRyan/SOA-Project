@@ -73,6 +73,18 @@ npm start
 
 The forum application allows users to browse topics and posts in real-time. New topics and posts are automatically loaded onto the page without requiring a refresh, thanks to Socket.IO integration.
 
+---
+
+## Architecture Overview
+
+The backend connects to MongoDB and Redis, handling API requests and managing real-time events. The `routes/` directory contains the API endpoints. Socket.IO is used for real-time communication, with events like "newtopic" and "updatemessages" being emitted based on user interactions.
+
+Upon creating a new topic, a "newtopic" event is emitted, and the backend broadcasts an "updatehub" event to all users in the "hub" room. Joining a topic page subscribes the user to specific topic updates, and posting a new message triggers an "updatemessages" event to users subscribed to that topic.
+
+Based on the `app.js`, `Hub.js`, and `Topic.js` files, we have Socket.IO setup and event handlers which integrate with the REST API. Here's a structured overview of the API calls and Socket.IO events based on the code:
+
+![Table of API Calls](readme_assets/routes.png "API Calls")
+
 ### Backend
 
 Built with Node.js and Express, the backend serves as the API layer, interfacing with MongoDB for data persistence and Redis for session storage. Socket.IO in backend side is utilized for real-time communication between the client and making rooms for user.
@@ -82,17 +94,6 @@ Each topic has its socket.IO room and when an user join a topic
 ### Frontend
 
 The frontend is developed with React, creating a dynamic and responsive user interface. It interacts with the backend through API calls and subscribes to real-time updates using Socket.IO.
-
----
-## Architecture Overview
-
-The backend connects to MongoDB and Redis, handling API requests and managing real-time events. The `routes/` directory contains the API endpoints. Socket.IO is used for real-time communication, with events like "newtopic" and "updatemessages" being emitted based on user interactions.
-
-Upon creating a new topic, a "newtopic" event is emitted, and the backend broadcasts an "updatehub" event to all users in the "hub" room. Joining a topic page subscribes the user to specific topic updates, and posting a new message triggers an "updatemessages" event to users subscribed to that topic.
-
-Based on the `app.js`, `Hub.js`, and `Topic.js` files, we have Socket.IO setup and event handlers which integrate with the REST API. Here's a structured overview of the API calls and Socket.IO events based on the code:
-
-![Table of API Calls](readme_assets/table_api_route.png "API Calls")
 
 ---
 ## Developement
