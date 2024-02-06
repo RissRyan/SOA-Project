@@ -83,7 +83,7 @@ Upon creating a new topic, a "newtopic" event is emitted, and the backend broadc
 
 Based on the `app.js`, `Hub.js`, and `Topic.js` files, we have Socket.IO setup and event handlers which integrate with the REST API. Here's a structured overview of the API calls and Socket.IO events based on the code:
 
-![Table of API Calls](readme_assets/routes.png "API Calls")
+![Table of API Calls](readme_assets/table_routes.png "API Calls")
 
 ### Backend
 
