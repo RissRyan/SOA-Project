@@ -61,7 +61,7 @@ server.on('error', function (error) {
 const mongoDBHost = process.env.MONGO_HOST || "localhost";
 
 try{
-    mongoose.connect(`mongodb://${mongoDBHost}:27017/mongo-bdd`)
+    mongoose.connect(`mongodb://mongo-bdd:27017/mongo-bdd`)
     console.log("Connecté à mongoDB !")
   }catch {
     (error => console.log(error));

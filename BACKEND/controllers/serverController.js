@@ -9,7 +9,7 @@ const redis = require("redis");
 const redisHost = process.env.REDIS_HOST || "localhost";
 
 // On configure le client Redis
-const redisClient = redis.createClient({ host: redisHost, port: 6379 })
+const redisClient = redis.createClient({ host: 'redis-bdd', port: 6379 })
 
 // S'il y a une erreur on veut dire laquelle
 redisClient.on('error', (err) => {
