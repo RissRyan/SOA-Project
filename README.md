@@ -8,6 +8,16 @@ This project is a modern forum application leveraging a RESTful API architecture
 
 To get the project up and running on your local machine for development and testing purposes, follow these steps.
 
+### With Docker
+
+You can run the app by downloading the repository and by running this command at the root of the project to build and run the container :  
+
+```bash
+docker-compose up -d --build
+```
+
+Or you can run the project manually :
+
 ### Prerequisites
 
 Ensure you have Node.js and Docker installed on your system. These are essential for running the backend services, MongoDB, and Redis.
@@ -65,7 +75,9 @@ The forum application allows users to browse topics and posts in real-time. New 
 
 ### Backend
 
-Built with Node.js and Express, the backend serves as the API layer, interfacing with MongoDB for data persistence and Redis for session storage. Socket.IO is utilized for real-time communication between the client and server, enabling live updates of topics and posts.
+Built with Node.js and Express, the backend serves as the API layer, interfacing with MongoDB for data persistence and Redis for session storage. Socket.IO in backend side is utilized for real-time communication between the client and making rooms for user.
+
+Each topic has its socket.IO room and when an user join a topic   
 
 ### Frontend
 
@@ -96,7 +108,7 @@ The project's structure is designed to facilitate easy development and contribut
 - **Redis** - The in-memory database used for session storage
 - **Socket.IO** - Enables real-time, bidirectional and event-based communication
 - **React** - The frontend library for building user interfaces
-- **Docker** - Containerization platform used for MongoDB and Redis services
+- **Docker** - Containerization of the app
 
 ---
 ## Author
