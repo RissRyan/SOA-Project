@@ -90,7 +90,7 @@ Socket.IO is used for real-time communication, with events like "newtopic" and "
 Each topic and the hub have their socket.IO rooms and when an user join a topic or the hub the backend put the user's socket in the specific room.
 It allows to separate the event calls between users.
 
-For example, when creating a new topic, a "newtopic" event is emitted from the client side, and the backend broadcasts an "updatehub" event to all users in the "hub" room. Joining a topic page subscribes the user to the topic's socket.IO room, and posting a new message triggers an "updatemessages" event to users subscribed to that topic. Those events allow the user to automatically do API calls.
+For example, when creating a new topic, a "newtopic" event is emitted from the client side, and the backend broadcasts an "updatehub" event to all users in the "hub" room. Joining a topic page subscribes the user to the topic's socket.IO room, and posting a new message triggers an "updatemessages" event to users subscribed to that topic's room. Those events allow the user to automatically do API calls.
 
 Based on the `app.js` file of the backend folder, `Hub.js`, and `Topic.js` files of the frontend, we have Socket.IO setup and event handlers which integrate with the REST API. Here's a structured overview of the API calls and Socket.IO events based on the code:
 
