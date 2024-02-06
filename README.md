@@ -95,13 +95,7 @@ For example, when creating a new topic, a "newtopic" event is emitted from the c
 Based on the `app.js` file of the backend folder, `Hub.js`, and `Topic.js` files of the frontend, we have Socket.IO setup and event handlers which integrate with the REST API. Here's a structured overview of the API calls and Socket.IO events based on the code:
 
 ![Table of API Calls](readme_assets/tables_routes.png "API Calls")
-
-### Backend
-
-Built with Node.js and Express, the backend serves as the API layer, interfacing with MongoDB for data persistence and Redis for session storage. Socket.IO in backend side is utilized for real-time communication between the client and making rooms for user.
-
   
-
 ---
 ## Developement
 
